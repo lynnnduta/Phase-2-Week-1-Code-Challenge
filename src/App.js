@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import TransactionTable from './components/TransactionTable';
+import TransactionForm from './components/TransactionForm';
+import SearchBar from './components/SearchBar';
 
 function App() {
+  const [transactions, setTransactions] = useState([
+    {
+      id: 1,
+      date: '2023-03-01',
+      description: 'Starbucks',
+      category: 'Food',
+      amount: -5.0,
+    },
+    {
+      id: 2,
+      date: '2023-03-02',
+      description: 'Amazon',
+      category: 'Shopping',
+      amount: -35.99,
+    },
+  ]);
+
+  const addTransaction = (newTransaction) => {
+    setTransactions([...transactions, newTransaction]);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Bank Transactions</h1>
+      <TransactionForm addTransaction={addTransaction} />
+      <SearchBar transactions={transactions} setTransactions={setTransactions} />
+      <TransactionTable transactions={transactions} />
     </div>
   );
 }
