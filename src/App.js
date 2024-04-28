@@ -10,14 +10,14 @@ function App() {
       date: '20/02/2024',
       description: 'KFC',
       category: 'Food',
-      amount: 3000,
+      amount: Ksh3000,
     },
     {
       id: 2,
       date: '25/02/2024',
       description: 'Shein',
       category: 'Shopping',
-      amount: 4500,
+      amount:Ksh4500,
     },
   ]);
 
