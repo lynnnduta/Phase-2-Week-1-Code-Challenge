@@ -7,17 +7,17 @@ function App() {
   const [transactions, setTransactions] = useState([
     {
       id: 1,
-      date: '2023-03-01',
-      description: 'Starbucks',
+      date: '20/02/2024',
+      description: 'KFC',
       category: 'Food',
-      amount: -5.0,
+      amount: 3000,
     },
     {
       id: 2,
-      date: '2023-03-02',
-      description: 'Amazon',
+      date: '25/02/2024',
+      description: 'Shein',
       category: 'Shopping',
-      amount: -35.99,
+      amount: 4500,
     },
   ]);
 
@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Bank Transactions</h1>
+      <h1>The Royal Bank Of Flatiron</h1>
       <TransactionForm addTransaction={addTransaction} />
       <SearchBar transactions={transactions} setTransactions={setTransactions} />
       <TransactionTable transactions={transactions} />

@@ -1,21 +1,29 @@
 import React, { useState } from 'react';
 
 function TransactionForm({ addTransaction }) {
+    const [date, setDate] = useState('');
   const [description, setDescription] = useState('');
   const [amount, setAmount] = useState('');
   const [category, setCategory] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!description || !amount || !category) return;
-    addTransaction({ description, amount, category });
+    if (!date || !description || !amount || !category) return;
+    addTransaction({date,description, amount, category });
+    setDate('');
     setDescription('');
     setAmount('');
     setCategory('');
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
+      <input
+        type="date"
+        placeholder="Date"
+        value={date}
+        onChange={(e) => setDate(e.target.value)}
+      />
       <input
         type="text"
         placeholder="Description"
